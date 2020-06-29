@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个JS程序</title>
+</head>
+<body>
+
+<!--功能1 做出反应-->
+<p><button	id="first"type="button" onclick="alert('Welcome，hello world!')">做出反应</button></p>
+<hr/>
+
+<!--功能2  //改变内容-->
+<button id="second"	type="button" onclick="changeContent();">改变HTML内容</button>
+<p id="change">开始了</p>
+<hr/>
+
+<script>
+function changeContent()
+{
+	x=document.getElementById("change");		//查找元素 
+	x.innerHTML="开始很久了，已经结束了";				
+}  
+</script>
+
+<!--功能3 改变样式，大小-->   
+<button id="third"	type="button" onclick="changeStyle();">改变HTML样式</button>
+<p id="change2" color="black">样式变化</p>
+<hr/>
+
+<script>
+function changeStyle()
+{
+	x=document.getElementById("change2");		//查找元素 		
+	x.style="font-size:30px;color:red"; 		    
+}
+</script>
+
+<!--功能4  验证输入-->       
+<div>输入一个大于5的数字：</div><input id="va" type="text" value="10">
+<button id="fourth"	type="button" onclick="validate_test()">验证输入</button>
+</br>
+
+<script>
+function validate_test(){
+	var x=document.getElementById("va").value;			
+	if(x>5){
+	alert("确实大于等于5")
+	}else if(x<5){
+		alert("输入小于5")
+	}else{
+		alert("输入的不是数字")
+	}
+}
+</script>
+</body>
+</html>
+
