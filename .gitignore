@@ -7,7 +7,8 @@ __pycache__/
 *.so
 # macOS
 .DS_Store
-
+# VSCode
+.vscode/
 # Distribution / packaging
 .Python
 build/
