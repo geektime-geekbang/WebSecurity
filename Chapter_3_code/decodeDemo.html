@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>decodeDemo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>伪协议</h1>
+<p>	<a href="javascript:alert(5)">javascript伪协议</a></p>
+<p>	<a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">data 伪协议 base64</a></p>
+<p>	<a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgiMSIpOzwvc2NyaXB0Pg==">含双引号data 伪协议 base64</a></p>
+<hr>
+<h1>编码解析</h1>
+<h3>HTML解码</h3>
+<p>对于a标签，href属性 javascript:alert(1) 编码比较</p>
+<p>1 	<a href="javascript:alert(1)"> 未编码</a></p>
+<p>2	<a h&#x72;ef="javascript:alert(1)">href中的r进行编码</a></p>
+<p>3	<a href="javasc&#x72;ipt:alert(1)">javascript中的r进行编码</a></p>
+<p>4	<a href="javascript:ale&#x72;t(1)">alert(1)中的r进行编码</a></p>
+<hr>
+
+<h3>URL解码</h3>
+<p>对于a标签，href属性 javascript:alert(1) 编码比较</p>
+<p>1	<a href="javascript:alert(1)"> 未编码</a></p>
+<p>2	<a h%72ef="javascript:alert(1)">href中的r进行编码</a></p>
+<p>3	<a href="javasc%72ipt:alert(1)">javascript中的r进行编码</a></p>
+<p>4	<a href="javascript:ale%72t(1)">alert(1)中的r进行编码</a></p>
+<hr>
+
+
+<h3>JavaScript解码</h3>
+<p>对于a标签，href属性 javascript:alert(1) 编码比较</p>
+<p>1	<a href="javascript:alert(1)"> 未编码</a></p>
+<p>2	<a h\u0072ef="javascript:alert(1)">href中的r进行编码</a></p>
+<p>3	<a href="javasc\u0072ipt:alert(1)">javascript中的r进行编码</a></p>
+<p>4	<a href="javascript:ale\u0072t(1)">alert(1)中的r进行编码</a></p>
+<p>5	<a href="javascript:alert\u00281)">alert(1)中的(进行编码</a></p>
+<hr>
+
+<h3>二层混淆解码</h3>
+<p>对于a标签，href属性 javascript:alert(1) 二层编码比较</p>
+<p>1	<a href="javascript:ale%5c%75%30%30%37%32t(1)">alert(1)中的r进行js编码,后url编码</a></p>
+<p>2	<a href="javascript:ale&#x5c;&#x75;&#x30;&#x30;&#x37;&#x32;t(1)">alert(1)中的r进行js编码,后html编码</a></p>
+<p>3	<a href="javascript:ale&#x25;&#x37;&#x32;t(1)">alert(1)中的r进行url编码,后html编码</a></p>
+<hr>
+
+
+<h3>三层混淆解码</h3>
+<p>对于a标签，href属性 javascript:alert(1) 三层编码漏洞触发</p>
+<p>三层解码 	<a href="javascript:ale&#x25;&#x35;&#x63;&#x25;&#x37;&#x35;&#x25;&#x33;&#x30;&#x25;&#x33;&#x30;&#x25;&#x33;&#x37;&#x25;&#x33;&#x32;t(1)">alert(1)中的r进行js编码,后url编码,再html编码</a></p>
+<hr>
+
+
+
+
+</body>
+</html>
